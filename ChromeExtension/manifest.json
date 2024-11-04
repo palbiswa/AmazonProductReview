@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Amazon Product Review",
+  "version": "1.0",
+  "description": "Call a Text mining API from Amazon web page and recommend Product review Sentiments",
+  "permissions": ["activeTab", "storage"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.amazon.com/*"],
+      "js": ["review.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/iconNew16.png",
+      "48": "images/iconNew48.png",
+      "128": "images/iconNew128.png"
+    }
+  }
+}
