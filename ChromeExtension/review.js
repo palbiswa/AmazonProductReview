@@ -36,8 +36,8 @@ function callApiAndDisplay() {
 function showRecommendation(data){
 
     // Create a div
-    var responseContainer = document.createElement('div');
-    responseContainer.id = 'responseContainer';
+    var rootContainer = document.createElement('div');
+    rootContainer.id = 'rootContainer';
 
     var sentimentElement = document.createElement('p');
     sentimentElement.textContent = `Review Sentiment: ${data.reviewSentiment}`;
@@ -45,11 +45,11 @@ function showRecommendation(data){
     var keywordsElement = document.createElement('p');
     keywordsElement.textContent = `Popular Review Keywords: ${data.popularReviewKeywords.join(', ')}`;
 
-    responseContainer.appendChild(sentimentElement);
-    responseContainer.appendChild(keywordsElement);
+    rootContainer.appendChild(sentimentElement);
+    rootContainer.appendChild(keywordsElement);
 
     // Append the response in container
-    document.body.appendChild(responseContainer);
+    document.body.appendChild(rootContainer);
 }
 
 
