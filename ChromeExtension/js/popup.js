@@ -75,10 +75,14 @@ function createBarChart(data, container) {
       .enter().append("rect")
       .attr("class", "bar")
       .attr("x", (d, i) => x(i))
-      .attr("y", d => y(d))
+      .attr("y", height) // Start from the bottom
       .attr("width", x.bandwidth())
-      .attr("height", d => height - y(d))
-      .attr("fill", "steelblue");
+      .attr("height", 0) // Start with height 0
+      .attr("fill", "steelblue")
+      .transition() // Add transition
+      .duration(3000) // Duration of the transition
+      .attr("y", d => y(d))
+      .attr("height", d => height - y(d));
 
   svg.append("g")
       .attr("class", "x-axis")
@@ -108,3 +112,4 @@ function createBarChart(data, container) {
       .text("Sentiment Levels")
       .style("fill", "red");
 }
+
