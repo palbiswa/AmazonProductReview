@@ -45,29 +45,33 @@ function showRecommendation(data) {
   rootContainer.appendChild(sentimentElement);
   rootContainer.appendChild(keywordsElement);
 
-  // Create the bar chart
-  var margin = {top: 30, right: 60, bottom: 60, left: 100},
-      width = 700 - margin.left - margin.right,
-      height = 250 - margin.top - margin.bottom;
+  createBarChart(data.sentimentChartData, rootContainer);
+}
 
-  var svg = d3.select(rootContainer).append("svg")
+function createBarChart(data, container) {
+  // Create the bar chart
+  var margin = {top: 30, right: 60, bottom: 40, left: 80},
+      width = 700 - margin.left - margin.right,
+      height = 200 - margin.top - margin.bottom;
+
+  var svg = d3.select(container).append("svg")
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   var x = d3.scaleBand()
-    .domain(data.sentimentChartData.map((d, i) => i))
+    .domain(data.map((d, i) => i))
     .range([0, width])
     .padding(0.1);
 
   var y = d3.scaleLinear()
-      .domain([0, d3.max(data.sentimentChartData)]).nice()
+      .domain([0, d3.max(data)]).nice()
       .range([height, 0]);
 
   svg.append("g")
       .selectAll(".bar")
-      .data(data.sentimentChartData)
+      .data(data)
       .enter().append("rect")
       .attr("class", "bar")
       .attr("x", (d, i) => x(i))
