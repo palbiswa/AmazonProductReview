@@ -1,5 +1,3 @@
-// popup.js
-
 document.addEventListener('DOMContentLoaded', () => {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     chrome.tabs.sendMessage(tabs[0].id, { action: "getReviewTexts" }, (response) => {
@@ -34,69 +32,75 @@ function callApiAndDisplay(reviewTexts) {
 }
 
 function showRecommendation(data) {
-  // Create a div
-  var rootContainer = document.createElement('div');
-  rootContainer.id = 'rootContainer';
+  var rootContainer = document.getElementById('rootContainer');
 
   var sentimentElement = document.createElement('p');
   sentimentElement.textContent = `Review Sentiment: ${data.reviewSentiment}`;
+  sentimentElement.classList.add('highlight');
 
   var keywordsElement = document.createElement('p');
   keywordsElement.textContent = `Popular Review Keywords: ${data.popularReviewKeywords.join(', ')}`;
+  keywordsElement.classList.add('highlight-black');
 
   rootContainer.appendChild(sentimentElement);
   rootContainer.appendChild(keywordsElement);
-
-  // Append the response in container
-  document.body.appendChild(rootContainer);
 
   // Create the bar chart
   var margin = {top: 30, right: 60, bottom: 60, left: 100},
       width = 700 - margin.left - margin.right,
       height = 250 - margin.top - margin.bottom;
 
-  var svg = d3.select("body").append("svg").attr("width", width + margin.left + margin.right)
+  var svg = d3.select(rootContainer).append("svg")
+      .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
-      .append("g") .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   var x = d3.scaleBand()
     .domain(data.sentimentChartData.map((d, i) => i))
-    .range([0, width]) .padding(0.1);
+    .range([0, width])
+    .padding(0.1);
 
   var y = d3.scaleLinear()
       .domain([0, d3.max(data.sentimentChartData)]).nice()
       .range([height, 0]);
 
-  svg.append("g") .selectAll(".bar")
-        .data(data.sentimentChartData) .enter().append("rect") .attr("class", "bar")
-        .attr("x", (d, i) => x(i)) .attr("y", d => y(d))
-        .attr("width", x.bandwidth())
-        .attr("height", d => height - y(d))
-        .attr("fill", "steelblue");
+  svg.append("g")
+      .selectAll(".bar")
+      .data(data.sentimentChartData)
+      .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", (d, i) => x(i))
+      .attr("y", d => y(d))
+      .attr("width", x.bandwidth())
+      .attr("height", d => height - y(d))
+      .attr("fill", "steelblue");
 
   svg.append("g")
-        .attr("class", "x-axis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x).tickFormat(i => i + 1));
+      .attr("class", "x-axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x).tickFormat(i => i + 1));
 
   svg.append("g")
-  .attr("class", "y-axis")
-  .call(d3.axisLeft(y));
+      .attr("class", "y-axis")
+      .call(d3.axisLeft(y));
 
   // Add X axis label
   svg.append("text")
-    .attr("class", "x-axis-label")
-    .attr("text-anchor", "middle")
-    .attr("x", width / 2) .attr("y", height + margin.bottom - 10)
-    .text("Review Comments")
-    .style("fill", "red");
+      .attr("class", "x-axis-label")
+      .attr("text-anchor", "middle")
+      .attr("x", width / 2)
+      .attr("y", height + margin.bottom - 10)
+      .text("Review Comments")
+      .style("fill", "red");
 
   // Add Y axis label
   svg.append("text")
-    .attr("class", "y-axis-label")
-    .attr("text-anchor", "middle")
-    .attr("transform", "rotate(-90)")
-    .attr("x", -height / 2)
-    .attr("y", -margin.left + 20) .text("Sentiment Levels")
-    .style("fill", "red");
+      .attr("class", "y-axis-label")
+      .attr("text-anchor", "middle")
+      .attr("transform", "rotate(-90)")
+      .attr("x", -height / 2)
+      .attr("y", -margin.left + 20)
+      .text("Sentiment Levels")
+      .style("fill", "red");
 }
