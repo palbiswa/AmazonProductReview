@@ -39,7 +39,7 @@ function showRecommendation(data) {
   sentimentElement.classList.add('highlight');
 
   var keywordsElement = document.createElement('p');
-  keywordsElement.textContent = `Popular Review Keywords: ${data.popularReviewKeywords.join(', ')}`;
+  keywordsElement.innerHTML = `<span class="key">Popular Review Keywords:</span> <span class="value">${data.popularReviewKeywords.join(', ')}</span>`;
   keywordsElement.classList.add('highlight-black');
 
   rootContainer.appendChild(sentimentElement);
@@ -50,9 +50,9 @@ function showRecommendation(data) {
 
 function createBarChart(data, container) {
   // Create the bar chart
-  var margin = {top: 30, right: 60, bottom: 40, left: 80},
+  var margin = {top: 30, right: 60, bottom: 60, left: 100},
       width = 700 - margin.left - margin.right,
-      height = 200 - margin.top - margin.bottom;
+      height = 250 - margin.top - margin.bottom;
 
   var svg = d3.select(container).append("svg")
       .attr("width", width + margin.left + margin.right)

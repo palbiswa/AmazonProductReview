@@ -47,6 +47,14 @@ p {
     margin: 10px 0;
 }
 
+.key {
+    font-weight: bold;
+}
+
+.value {
+    font-weight: normal;
+}
+
 .chart-container {
     width: 100%;
     margin-top: 40px;
