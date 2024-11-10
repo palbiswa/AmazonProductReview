@@ -4,6 +4,7 @@ from flask_cors import CORS
 
 from TextMining.NLTKKeyPhraseExtractor import NLTKKeyPhraseExtractor
 from TextMining.TextBlobSentimentAnalyzer import TextBlobSentimentAnalyzer
+from TextMining.TextBlobSentimentTrends import TextBlobSentimentTrends
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -23,13 +24,19 @@ def analyze_product():
         analyzer = TextBlobSentimentAnalyzer(review_data)
         sentiment = analyzer.get_sentiment()
 
+        # prepare sentiment chart data
+        analyzer = TextBlobSentimentTrends(review_data)
+        sentiment_scores_charting = analyzer.calculate_sentiment()
+
+
         # Extract Key phrases
         extractor = NLTKKeyPhraseExtractor(review_data)
         key_phrases = extractor.extract_key_phrases()
 
         response_data = {
             "reviewSentiment": sentiment,
-            "popularReviewKeywords": key_phrases
+            "popularReviewKeywords": key_phrases,
+            "sentimentChartData": sentiment_scores_charting
         }
 
     else:

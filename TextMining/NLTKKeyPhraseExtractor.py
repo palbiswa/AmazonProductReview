@@ -26,10 +26,3 @@ class NLTKKeyPhraseExtractor:
 
         key_phrases = [' '.join(bigram) for bigram in bigrams]
         return key_phrases
-
-
-if __name__ == "__main__":
-    texts = ["I love this product!", "It works great and is very affordable.", "Highly recommend to everyone."]
-    extractor = NLTKKeyPhraseExtractor(texts)
-    key_phrases = extractor.extract_key_phrases()
-    print(f"Key Phrases: {key_phrases}")
