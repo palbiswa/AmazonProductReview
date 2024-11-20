@@ -11,6 +11,15 @@
 <body>
     <div class="container">
         <h1>Amazon Product Analyser</h1>
+        <div class="model-selection">
+            <p>Select Sentiment Analysis Model:</p>
+            <label>
+                <input type="radio" name="model" value="textblob" checked> TextBlob (Default)
+            </label>
+            <label>
+                <input type="radio" name="model" value="vader"> Vader
+            </label>
+        </div>
         <div id="rootContainer"></div>
     </div>
 </body>

@@ -5,6 +5,8 @@ from flask_cors import CORS
 from TextMining.NLTKKeyPhraseExtractor import NLTKKeyPhraseExtractor
 from TextMining.TextBlobSentimentAnalyzer import TextBlobSentimentAnalyzer
 from TextMining.TextBlobSentimentTrends import TextBlobSentimentTrends
+from TextMining.VaderSentimentAnalyzer import VaderSentimentAnalyzer
+from TextMining.VaderSentimentTrends import VaderSentimentTrends
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -15,23 +17,28 @@ CORS(app)
 def analyze_product():
     app.logger.info('Rest api called and review received .....')
     raw_review_data = request.get_json()
+    selected_model = raw_review_data.get("model", "textblob")
     review_data = []
     # Iterating through the raw_review_data to remove unwanted strings
+    raw_review_data = raw_review_data.get("reviews", [])
     for cur_review in raw_review_data:
         if cur_review != 'Read more':
             processed_data = cur_review.replace('<br>','')
             if processed_data != '':
                 review_data.append(processed_data)
+    app.logger.info(f'Model used: {selected_model}')
     app.logger.info(f'Review data: {review_data}')
     if len(review_data) > 0 :
-        # Analyze Sentiment :
-        analyzer = TextBlobSentimentAnalyzer(review_data)
-        sentiment = analyzer.get_sentiment()
-
-        # prepare sentiment chart data
-        analyzer = TextBlobSentimentTrends(review_data)
-        sentiment_scores_charting = analyzer.calculate_sentiment()
-
+        if selected_model == "vader":
+            analyzer = VaderSentimentAnalyzer(review_data)
+            sentiment = analyzer.get_sentiment()
+            analyzer = VaderSentimentTrends(review_data)
+            sentiment_scores_charting = analyzer.calculate_sentiment()
+        else:
+            analyzer = TextBlobSentimentAnalyzer(review_data)
+            sentiment = analyzer.get_sentiment()
+            analyzer = TextBlobSentimentTrends(review_data)
+            sentiment_scores_charting = analyzer.calculate_sentiment()
 
         # Extract Key phrases
         extractor = NLTKKeyPhraseExtractor(review_data)
@@ -40,7 +47,8 @@ def analyze_product():
         response_data = {
             "reviewSentiment": sentiment,
             "popularReviewKeywords": key_phrases,
-            "sentimentChartData": sentiment_scores_charting
+            "sentimentChartData": sentiment_scores_charting,
+            "modelUsed": selected_model
         }
 
     else:
@@ -48,7 +56,8 @@ def analyze_product():
         # Create Text Mining Response
         response_data = {
             "reviewSentiment": "Not Found",
-            "popularReviewKeywords": ["No Data Available"]
+            "popularReviewKeywords": ["No Data Available"],
+            "modelUsed": selected_model
         }
 
     return jsonify(response_data)
