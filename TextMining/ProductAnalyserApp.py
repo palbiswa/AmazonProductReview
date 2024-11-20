@@ -14,12 +14,16 @@ CORS(app)
 @app.route('/analyze', methods=['POST'])
 def analyze_product():
     app.logger.info('Rest api called and review received .....')
-
-    review_data = request.get_json()
+    raw_review_data = request.get_json()
+    review_data = []
+    # Iterating through the raw_review_data to remove unwanted strings
+    for cur_review in raw_review_data:
+        if cur_review != 'Read more':
+            processed_data = cur_review.replace('<br>','')
+            if processed_data != '':
+                review_data.append(processed_data)
     app.logger.info(f'Review data: {review_data}')
-
     if len(review_data) > 0 :
-
         # Analyze Sentiment :
         analyzer = TextBlobSentimentAnalyzer(review_data)
         sentiment = analyzer.get_sentiment()
