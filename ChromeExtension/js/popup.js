@@ -6,20 +6,42 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+  const modelRadios = document.querySelectorAll('input[name="model"]');
+  modelRadios.forEach(radio => {
+    radio.addEventListener('change', function() {
+      // Clear the existing content of rootContainer before making a new API call
+      document.getElementById('rootContainer').innerHTML = '';
+
+      // When the radio button changes, call API with selected model
+      chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        chrome.tabs.sendMessage(tabs[0].id, { action: "getReviewTexts" }, (response) => {
+          if (response && response.reviewTexts) {
+            callApiAndDisplay(response.reviewTexts);  // Recalling with the updated model selection
+          }
+        });
+      });
+      displaySelectedModel();
+    });
+  });
 });
 
 function callApiAndDisplay(reviewTexts) {
   console.log("REST API called ...");
 
+  // Get the selected model from the radio buttons
+  const selectedModel = document.querySelector('input[name="model"]:checked').value;
   // Convert the array to a JSON string
-  var jsonReviewTexts = JSON.stringify(reviewTexts);
+  var jsonReviewTexts = JSON.stringify({ reviews: reviewTexts, model: selectedModel });
 
   fetch('http://127.0.0.1:5001/analyze', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: jsonReviewTexts
+    body: JSON.stringify({
+      model: selectedModel,
+      reviews: reviewTexts
+    })
   })
   .then(response => response.json())
   .then(data => {
@@ -31,11 +53,12 @@ function callApiAndDisplay(reviewTexts) {
   });
 }
 
+
 function showRecommendation(data) {
   var rootContainer = document.getElementById('rootContainer');
 
   var sentimentElement = document.createElement('p');
-  sentimentElement.textContent = `Review Sentiment: ${data.reviewSentiment}`;
+  sentimentElement.textContent = `Review Sentiment: ${data.reviewSentiment} (Model used: ${data.modelUsed})`;
   sentimentElement.classList.add('highlight');
 
   var keywordsElement = document.createElement('p');
@@ -113,3 +136,11 @@ function createBarChart(data, container) {
       .style("fill", "red");
 }
 
+function displaySelectedModel() {
+  var selectedModel = document.querySelector('input[name="model"]:checked').value;
+  var modelLabel = document.getElementById('modelLabel');
+
+  if (modelLabel) {
+    modelLabel.textContent = `Selected Sentiment Analysis Model: ${selectedModel.charAt(0).toUpperCase() + selectedModel.slice(1)}`;
+  }
+}
