@@ -1,8 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     chrome.tabs.sendMessage(tabs[0].id, { action: "getReviewTexts" }, (response) => {
-      if (response && response.reviewTexts) {
-        callApiAndDisplay(response.reviewTexts);
+      console.log("Response from content script:", response);
+      if (response && response.reviewTexts && response.reviewDates) {
+        console.log('Review Texts:', response.reviewTexts); // Log to check if we got data
+        console.log('Review Dates:', response.reviewDates);
+        callApiAndDisplay(response.reviewTexts, response.reviewDates);
       }
     });
   });
@@ -15,8 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
       // When the radio button changes, call API with selected model
       chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
         chrome.tabs.sendMessage(tabs[0].id, { action: "getReviewTexts" }, (response) => {
-          if (response && response.reviewTexts) {
-            callApiAndDisplay(response.reviewTexts);  // Recalling with the updated model selection
+          console.log("Response from content script:", response);
+          if (response && response.reviewTexts  && response.reviewDates ) {
+            callApiAndDisplay(response.reviewTexts, response.reviewDates );  // Recalling with the updated model selection
           }
         });
       });
@@ -25,13 +29,17 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-function callApiAndDisplay(reviewTexts) {
+function callApiAndDisplay(reviewTexts, reviewDates) {
   console.log("REST API called ...");
 
   // Get the selected model from the radio buttons
   const selectedModel = document.querySelector('input[name="model"]:checked').value;
   // Convert the array to a JSON string
-  var jsonReviewTexts = JSON.stringify({ reviews: reviewTexts, model: selectedModel });
+  console.log("Selected Model:", selectedModel);
+console.log("Review Texts:", reviewTexts);
+console.log("Review Dates:", reviewDates);
+
+  var jsonReviewTexts = JSON.stringify({ reviews: reviewTexts, model: selectedModel, reviewDates: reviewDates });
 
   fetch('http://127.0.0.1:5001/analyze', {
     method: 'POST',
@@ -40,12 +48,12 @@ function callApiAndDisplay(reviewTexts) {
     },
     body: JSON.stringify({
       model: selectedModel,
-      reviews: reviewTexts
+      reviews: reviewTexts,
+      reviewDates: reviewDates
     })
   })
   .then(response => response.json())
   .then(data => {
-    console.log(data);
     showRecommendation(data);
   })
   .catch(error => {
