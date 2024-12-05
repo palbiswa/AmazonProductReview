@@ -3,6 +3,7 @@ import logging
 from flask_cors import CORS
 from collections import defaultdict
 from datetime import datetime
+import calendar
 
 from TextMining.NLTKKeyPhraseExtractor import NLTKKeyPhraseExtractor
 from TextMining.TextBlobSentimentAnalyzer import TextBlobSentimentAnalyzer
@@ -15,6 +16,29 @@ logging.basicConfig(level=logging.DEBUG)
 app = Flask(__name__)
 CORS(app)
 
+
+def group_by_month(review_dates, sentiment_scores):
+    monthly_sentiments = defaultdict(list)
+
+    for date_str, sentiment in zip(review_dates, sentiment_scores):
+        try:
+            date = datetime.strptime(date_str, '%m/%d/%Y')
+            month_key = date.replace(day=1)
+            monthly_sentiments[month_key].append(sentiment)
+        except ValueError as e:
+            app.logger.warning(f"Date parsing error: {e}")
+            continue
+
+    sentiment_trends = [
+        {
+            'date': date.strftime('%m-%Y'),
+            'avgSentiment': sum(sentiments) / len(sentiments)
+        }
+        for date, sentiments in monthly_sentiments.items()
+    ]
+
+    return sorted(sentiment_trends,
+                  key=lambda x: datetime.strptime(x['date'], '%m-%Y'))
 @app.route('/analyze', methods=['POST'])
 def analyze_product():
     app.logger.info('Rest api called and review received .....')
@@ -32,7 +56,7 @@ def analyze_product():
                 review_data.append(processed_data)
 
     app.logger.info(f'Model used: {selected_model}')
-    app.logger.info(f'Review data: {len(raw_review_data)}')
+    app.logger.info(f'Review data: {len(review_data)}')
     app.logger.info(f'Review dates: {len(review_dates)}')
 
     sentiment_scores = []
@@ -59,26 +83,7 @@ def analyze_product():
 
 
         # Calculate sentiment trends by date
-        sentiment_trends_by_date = defaultdict(list)  # Store sentiment by date
-        for i, date_str in enumerate(review_dates):
-            try:
-                # Parse the review date
-                review_date = datetime.strptime(date_str, '%m/%d/%Y')  # Expected format: 'November 5, 2024'
-            except ValueError as e:
-                app.logger.warning(f"Error parsing date '{date_str}': {e}")
-                review_date = None  # Skip this review if parsing fails
-
-            if review_date:
-                sentiment_trends_by_date[review_date].append(sentiment_scores_charting[i])  # Add sentiment for this date
-
-        # Convert sentiment trends to average polarity per date
-        sentiment_trends = []
-        for review_date, sentiment_list in sentiment_trends_by_date.items():
-            avg_sentiment = sum(sentiment_list) / len(sentiment_list)  # Average sentiment for the date
-            sentiment_trends.append({
-                'date': review_date.strftime('%m-%d-%Y'),
-                'avgSentiment': avg_sentiment
-            })
+        sentiment_trends = group_by_month(review_dates, sentiment_scores_charting)
 
         response_data = {
             "reviewSentiment": sentiment,

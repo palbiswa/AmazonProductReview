@@ -18,7 +18,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
       if (reviewDate) {
         // Remove the "Reviewed in the United States on " part of the string
-        var cleanedDate = reviewDate.replace(/Reviewed in the United States on\s+/i, '').trim();
+        var cleanedDate = reviewDate.replace(/Reviewed in the United States on\s+/i, '');
 
         // Log the cleaned date string for debugging purposes
         console.log('Cleaned Date String:', cleanedDate);
