@@ -1,0 +1,65 @@
+.custom-banner-red {
+  width: 100%;
+  background-color: #f20707;
+  color: #ffffff;
+  padding: 12px;
+  text-align: center;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
+  box-sizing: border-box;
+}
+
+.custom-banner-orange {
+    width: 100%;
+    background-color: #f25e08;
+    color: #ffffff;
+    padding: 12px;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
+    box-sizing: border-box;
+  }
+
+.custom-banner-yellow {
+    width: 100%;
+    background-color: #e2f207;
+    color: #ffffff;
+    padding: 12px;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
+    box-sizing: border-box;
+  }
+
+  .custom-banner-lightgreen {
+    width: 100%;
+    background-color: #07f207;
+    color: #ffffff;
+    padding: 12px;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
+    box-sizing: border-box;
+  }
+
+  .custom-banner-green {
+    width: 100%;
+    background-color: #037015;
+    color: #ffffff;
+    padding: 12px;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
+    box-sizing: border-box;
+  }
+    
+  .custom-banner {
+    width: 100%;
+    background-color: #176cec;
+    color: #ffffff;
+    padding: 12px;
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
+    box-sizing: border-box;
+  }

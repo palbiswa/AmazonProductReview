@@ -13,12 +13,16 @@ class TextBlobSentimentAnalyzer:
         polarity = self.analysis.sentiment.polarity
 
         # Classify the sentiment as positive or negative
-        if polarity > 0:
-            return "Positive"
-        elif polarity < 0:
+        if polarity <-0.5:
+            return "Strongly Negative"
+        elif polarity > -0.5 and polarity < 0:
             return "Negative"
-        else:
+        elif polarity == 0:
             return "Neutral"
+        elif polarity > 0 and polarity < 0.5:
+            return "Positive"
+        else:
+            return "Strongly Positive" # polarity > 0.5
 
 
 
