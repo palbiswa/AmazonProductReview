@@ -76,6 +76,7 @@ function showRecommendation(data) {
   rootContainer.appendChild(sentimentElement);
   rootContainer.appendChild(keywordsElement);
 
+
   createSentimentTrendLineChart(data.sentimentTrendsByDate, rootContainer);
   createBarChart(data.sentimentChartData, rootContainer);
 }
@@ -135,6 +136,63 @@ function createBarChart(data, container) {
       .style("fill", "red");
 
   // Add Y axis label
+  svg.append("text")
+      .attr("class", "y-axis-label")
+      .attr("text-anchor", "middle")
+      .attr("transform", "rotate(-90)")
+      .attr("x", -height / 2)
+      .attr("y", -margin.left + 20)
+      .text("Sentiment Levels")
+      .style("fill", "red");
+}
+
+function createLineChart(data, container) {
+  var margin = {top: 30, right: 60, bottom: 60, left: 100},
+      width = 700 - margin.left - margin.right,
+      height = 250 - margin.top - margin.bottom;
+
+  var svg = d3.select(container).append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  var x = d3.scaleLinear()
+    .domain([0, data.length - 1])
+    .range([0, width]);
+
+  var y = d3.scaleLinear()
+      .domain([-1, 1])
+      .range([height, 0]);
+
+  var line = d3.line()
+      .x((d, i) => x(i))
+      .y(d => y(d));
+
+  svg.append("path")
+      .datum(data)
+      .attr("fill", "none")
+      .attr("stroke", "steelblue")
+      .attr("stroke-width", 2)
+      .attr("d", line);
+
+  svg.append("g")
+      .attr("class", "x-axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x).ticks(data.length).tickFormat(i => i + 1));
+
+  svg.append("g")
+      .attr("class", "y-axis")
+      .call(d3.axisLeft(y));
+
+  svg.append("text")
+      .attr("class", "x-axis-label")
+      .attr("text-anchor", "middle")
+      .attr("x", width / 2)
+      .attr("y", height + margin.bottom - 10)
+      .text("Review Comments")
+      .style("fill", "red");
+
   svg.append("text")
       .attr("class", "y-axis-label")
       .attr("text-anchor", "middle")

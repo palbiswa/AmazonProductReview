@@ -14,7 +14,7 @@ class TextBlobSentimentTrends:
         return sentiment_data
 
 # Example usage:
-text_list = ["I love this!", "This is terrible.", "I'm feeling great today."]
-analyzer = TextBlobSentimentTrends(text_list)
-sentiment_scores = analyzer.calculate_sentiment()
-print(sentiment_scores)
+# text_list = ["I love this!", "This is terrible.", "I'm feeling great today."]
+# analyzer = TextBlobSentimentTrends(text_list)
+# sentiment_scores = analyzer.calculate_sentiment()
+# print(sentiment_scores)
