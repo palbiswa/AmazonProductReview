@@ -3,7 +3,8 @@ import logging
 from flask_cors import CORS
 from collections import defaultdict
 from datetime import datetime
-import calendar
+from langdetect import detect
+
 
 from TextMining.NLTKKeyPhraseExtractor import NLTKKeyPhraseExtractor
 from TextMining.TextBlobSentimentAnalyzer import TextBlobSentimentAnalyzer
@@ -52,7 +53,7 @@ def analyze_product():
     for cur_review in raw_review_data:
         if cur_review != 'Read more':
             processed_data = cur_review.replace('<br>','')
-            if processed_data != '':
+            if processed_data != '' and detect(processed_data) == 'en':
                 review_data.append(processed_data)
 
     app.logger.info(f'Model used: {selected_model}')
