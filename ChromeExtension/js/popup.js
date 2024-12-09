@@ -76,16 +76,16 @@ function showRecommendation(data) {
   rootContainer.appendChild(sentimentElement);
   rootContainer.appendChild(keywordsElement);
 
-
-  createSentimentTrendLineChart(data.sentimentTrendsByDate, rootContainer);
   createBarChart(data.sentimentChartData, rootContainer);
+  createSentimentTrendLineChart(data.sentimentTrendsByDate, rootContainer);
+
 }
 
 function createBarChart(data, container) {
   // Create the bar chart
-  var margin = {top: 30, right: 60, bottom: 60, left: 100},
+  var margin = {top: 10, right: 60, bottom: 40, left: 100},
       width = 700 - margin.left - margin.right,
-      height = 250 - margin.top - margin.bottom;
+      height = 210 - margin.top - margin.bottom;
 
   var svg = d3.select(container).append("svg")
       .attr("width", width + margin.left + margin.right)
@@ -213,9 +213,9 @@ function displaySelectedModel() {
 }
 
 function createSentimentTrendLineChart(data, container) {
-    const margin = { top: 30, right: 50, bottom: 60, left: 70 };
+    const margin = { top: 10, right: 50, bottom: 60, left: 70 };
     const width = 700 - margin.left - margin.right;
-    const height = 300 - margin.top - margin.bottom;
+    const height = 210 - margin.top - margin.bottom;
 
     data.forEach(d => {
         const [month, year] = d.date.split('-');
@@ -247,6 +247,8 @@ function createSentimentTrendLineChart(data, container) {
             .ticks(d3.timeMonth.every(1))
             .tickFormat(d3.timeFormat("%b %Y")))
         .selectAll("text")
+        .transition() // Add transition
+        .duration(3000) // Duration of the transition
         .style("text-anchor", "end")
         .attr("dx", "-.8em")
         .attr("dy", ".15em")
@@ -266,7 +268,12 @@ function createSentimentTrendLineChart(data, container) {
         .attr("fill", "none")
         .attr("stroke", "steelblue")
         .attr("stroke-width", 2)
-        .attr("d", line);
+        .attr("d", line)
+        .attr("stroke-dasharray", function() { return this.getTotalLength(); })
+        .attr("stroke-dashoffset", function() { return this.getTotalLength(); })
+        .transition() // Add transition
+        .duration(3000) // Duration of the transition in milliseconds
+        .attr("stroke-dashoffset", 0);
 
     svg.selectAll(".dot")
         .data(data)
@@ -281,8 +288,9 @@ function createSentimentTrendLineChart(data, container) {
         .attr("class", "x-axis-label")
         .attr("text-anchor", "middle")
         .attr("x", width / 2)
-        .attr("y", height + margin.bottom - 10)
-        .text("Review Months");
+        .attr("y", height + margin.bottom - 2)
+        .text("Review Months")
+        .style("fill", "red");
 
     svg.append("text")
         .attr("class", "y-axis-label")
@@ -290,5 +298,6 @@ function createSentimentTrendLineChart(data, container) {
         .attr("transform", "rotate(-90)")
         .attr("x", -height / 2)
         .attr("y", -margin.left + 20)
-        .text("Average Sentiment");
+        .text("Average Sentiment")
+        .style("fill", "red");
 }
