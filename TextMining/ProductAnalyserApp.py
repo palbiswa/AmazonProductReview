@@ -108,5 +108,51 @@ def analyze_product():
 
     return jsonify(response_data)
 
+@app.route('/bannerTone', methods=['POST'])
+def analyze_productforbanner():
+    app.logger.info('Rest api called from banner .....')
+    review_data = request.get_json()
+    raw_review_data = request.get_json()
+    review_data = []
+    # Iterating through the raw_review_data to remove unwanted strings
+    for cur_review in raw_review_data:
+        if cur_review != 'Read more':
+            processed_data = cur_review.replace('<br>','')
+            if processed_data != '':
+                review_data.append(processed_data)
+
+    app.logger.info(f'Review data: {review_data}')
+    
+    if len(review_data) > 0 :
+        # Analyze Sentiment :
+        analyzer = TextBlobSentimentAnalyzer(review_data)
+        sentiment = analyzer.get_sentiment()
+
+        # prepare sentiment chart data
+        analyzer = TextBlobSentimentTrends(review_data)
+        sentiment_scores_charting = analyzer.calculate_sentiment()
+
+
+        # Extract Key phrases
+        extractor = NLTKKeyPhraseExtractor(review_data)
+        key_phrases = extractor.extract_key_phrases()
+
+        response_data = {
+            "reviewSentiment": sentiment,
+            "popularReviewKeywords": key_phrases,
+            "sentimentChartData": sentiment_scores_charting
+        }
+
+    else:
+
+        # Create Text Mining Response
+        response_data = {
+            "reviewSentiment": "Not Found",
+            "popularReviewKeywords": ["No Data Available"]
+        }
+
+    app.logger.info(f'Response data: {response_data}')
+    return jsonify(response_data)
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5001)
