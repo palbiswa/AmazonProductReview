@@ -185,9 +185,7 @@ This table categorizes Amazon product review pages as Positive, Negative for tes
 
 | Product Name                                                                                          | URL                                                                                                                                                                                                                     | Sentiment Feedback |
 |-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| BLACK+DECKER 3-in-1 Waffle Maker with Nonstick Reversible Plates                                      | [Amazon Link](https://www.amazon.com/LEVOIT-Purifier-Allergies-Eliminator-Warranty/dp/B07GKVS2N8/)                                                                               | Negative |
-| Chicken Mask                                                                                          | [Amazon Link](https://www.amazon.com/Jumlys-Plastic-Fillable-Colorful-Stuffers/dp/B0CP7Y8NMR/ref=pd_sim_hxwPM2_sspa_dk_detail_p0_og_d0?pd_rd_w=dbvOV&content-id=amzn1.sym.8731cf14-a5af-469f-9ca4-1f4799dd0e7c&pf_rd_p=8731cf14-a5af-469f-9ca4-1f4799dd0e7c&pf_rd_r=T3AFDT2C0VV6V8CEY0Q1&pd_rd_wg=x5wHC&pd_rd_r=10a802bc-1d8e-467f-9723-ddf7a5d1cac8&pd_rd_i=B0CP7Y8NMR&psc=1) | Negative |
-| Party Favors                                                                                          | [Amazon Link](https://www.amazon.com/Plastic-Fillable-Colorful-Perfect-Stuffers/dp/B0CNGTK8X9/)                                                                                  | Negative |
+| 1000 PCS 2.4" Plastic Easter Eggs Bulk, Empty Easter Eggs in 5 Colors, Fillable Pastel Colorful Easter Eggs with Hinge, Perfect for Easter Hunt, Basket Stuffers Fillers and Easter Theme Party Favors                                     | [Amazon Link](https://www.amazon.com/Plastic-Fillable-Colorful-Perfect-Stuffers/dp/B0CNGTK8X9/ref=sr_1_565?crid=16Y5J7YECQKU3&dib=eyJ2IjoiMSJ9.P3q1Rs5bqp29s2enFFFbMTJOa4RXtJndKglHE7s6s-0eHTgMPfkYVnXrImn2IZBQWKQIzYJXpdjYTBKxnWKijfC_ylYe3KlwDOEtsjX-C4B6NJKHByV9LHB5SJV59WxMcHx0gGYGOk3KKyXhBlz5wKSlAFyKJVD5hlDUhrIpNyJ8P8Lsgc_TAhYMCg1TeLDT.bQER4FCCjoJROzSvZxN-13tUEwO8bnDP84SOl3-5VJM&dib_tag=se&keywords=party+favors&m=A2L77EE7U53NWQ&qid=1731388734&refinements=p_6%3AA2L77EE7U53NWQ&rnid=275224011&s=toys-and-games&sprefix=party+%2Caps%2C216&sr=1-565)                                                                               | Negative | [Amazon Link](https://www.amazon.com/Plastic-Fillable-Colorful-Perfect-Stuffers/dp/B0CNGTK8X9/)                                                                                  | Negative |
 
 # Software Test Result.
 Here Sofware results are marked as Postive (Y), Negetive (N).
@@ -196,12 +194,14 @@ Human Feedback are marked as Positive (+), Negetive(-)
 
 This table compares human-provided sentiment feedback with software-generated feedback for various products.
 
-| Product Name                                        | Human Feedback         | Software Feedback | Result
-|----------------------------------------------------|------------------------|-----------------|
-| Legendary Whitetails Men's Buck Camp Flannel, Long Sleeve Plaid Button Down Casual Shirt, Corduroy Cuffs | Positive               | Positive        | Y+
-| Apple Watch Series 10 Smartwatch with Jet Black Aluminium Case | Positive               | Positive | Y+
-| Stanley IceFlow Flip Straw Tumbler with Handle 30 oz Twist On Lid and Flip Up Straw Leak Resistant Water Bottle Insulated Stainless Steel BPA-Free Lilac                   | Positive               | Positive | Y+
-| BLACK+DECKER 3-in-1 Waffle Maker with Nonstick Reversible Plates | Negative               | Negative |
-| Chicken Mask                                       | Negative               | [To Be Updated] |
-| Party Favors                                       | Negative               | [To Be Updated] |
+# Feedback Table for Amazon Product Review Chrome Extension
+
+This table compares human-provided sentiment feedback with software-generated feedback for various products.
+
+| Product Name                                        | Human Feedback         | Software Feedback | Result 
+|----------------------------------------------------|------------------------|-------------------|-------
+| Legendary Whitetails Men's Buck Camp Flannel, Long Sleeve Plaid Button Down Casual Shirt, Corduroy Cuffs | Positive               | Positive          | Y+
+| Apple Watch Series 10 Smartwatch with Jet Black Aluminium Case | Positive               | Positive          |  Y+
+| Stanley IceFlow Flip Straw Tumbler with Handle 30 oz Twist On Lid and Flip Up Straw Leak Resistant Water Bottle Insulated Stainless Steel BPA-Free Lilac                  | Positive               | Positive          | Y+
+| 1000 PCS 2.4" Plastic Easter Eggs Bulk, Empty Easter Eggs in 5 Colors, Fillable Pastel Colorful Easter Eggs with Hinge, Perfect for Easter Hunt, Basket Stuffers Fillers and Easter Theme Party Favors| Negative               | Negative          | N-
 
