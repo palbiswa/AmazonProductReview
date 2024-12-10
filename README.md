@@ -43,7 +43,8 @@ Navigate to the project directory:
 ```bash
    cd TextMining
 ```   
-2. Install required dependencies
+2. Install required dependencies. 
+   For example install the corresponding packages like nltk,flask, CORS,TextBlob, VaderSentiment and related packages mentioned in python code.
 3. Start the backend server using ProductAnalyserApp.py. This is the flask class which will run the server to receive REST API request from Chrome extension
 4. Ensure the server is running and accessible. If it runs properly it will show the following like in console.
  INFO:werkzeug:WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
