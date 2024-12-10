@@ -151,10 +151,14 @@ The repository contains two primary components:
 3. The backend processes the reviews and performs sentiment analysis.
 4. The analysis results are sent back to the extension and displayed in the browser.
 5. You can look into the implementation from the github code. Here is the quick snapshots of the file structure.
-   UI Code Files
-   ![UI Code Files](assets/UI_Code.png).
-   Python Text Mining Backend Code Files
-   ![Backend Python Text Mining Files](assets/Python_Code.png).
+
+- UI Code Files
+
+![UI Code Files](assets/UI_Code.png).
+
+- Python Text Mining Backend Code Files
+
+![Backend Python Text Mining Files](assets/Python_Code.png).
    
 
 ---
