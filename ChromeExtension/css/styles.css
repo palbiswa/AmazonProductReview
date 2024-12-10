@@ -1,31 +1,37 @@
 body {
     font-family: Arial, sans-serif;
-    padding: 10px; /* Narrower padding */
+    padding: 5px; /* Narrower padding */
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     background-color: #f4f4f4;
+    height: max-content
 }
 
 .container {
     background-color: #fff;
-    padding: 10px; /* Narrower padding */
-    border-radius: 8px;
+    padding: 5px; /* Narrower padding */
+    border-radius: 4px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 800px; /* Define width */
-    height: 540px; /* Define height */
+    height: 600px; /* Define height */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-h1 {
+.topicName{
+ padding-top: 2px;
+ font-size: 1.2em;
+ font-weight: bold
+}
+
+h4 {
     font-size: 2em;
     color: #333;
-    margin-bottom: 40px;
+    margin-bottom: 2px;
 }
 
 p {
@@ -38,13 +44,13 @@ p {
     font-size: 1.2em;
     color: #007bff;
     font-weight: bold;
-    margin: 10px 0;
+    margin: 2px 0;
 }
 
 .highlight-black {
     font-size: 1em;
     color: #000;
-    margin: 10px 0;
+    margin: 2px 0;
 }
 
 .key {
@@ -57,5 +63,5 @@ p {
 
 .chart-container {
     width: 100%;
-    margin-top: 40px;
+    margin-top: 4px;
 }
