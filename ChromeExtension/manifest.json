@@ -5,7 +5,8 @@
   "description": "Buy with Confidence",
   "permissions": [
     "activeTab",
-    "scripting"
+    "scripting",
+    "tabs"
   ],
   "host_permissions": [
     "http://127.0.0.1/*"
@@ -24,8 +25,8 @@
   "content_scripts": [
     {
       "matches": ["*://*.amazon.com/*"],
-      "css": ["./css/bannerstyles.css"],
-      "js": ["content.js"]
+      "js": ["content.js"],
+      "css": ["./css/bannerstyles.css"]
     }
   ]
 }

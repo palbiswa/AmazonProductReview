@@ -8,9 +8,10 @@ class TextBlobSentimentTrends:
     def calculate_sentiment(self):
         sentiment_data = []
         for text in self.text_list:
+            print("This is text:" + text)
             blob = TextBlob(text)
             sentiment_data.append(round(blob.sentiment.polarity, 2))
-        return list(set(sentiment_data))
+        return sentiment_data
 
 # Example usage:
 # text_list = ["I love this!", "This is terrible.", "I'm feeling great today."]
