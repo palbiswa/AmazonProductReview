@@ -205,3 +205,13 @@ This table compares human-provided sentiment feedback with software-generated fe
 | Stanley IceFlow Flip Straw Tumbler with Handle 30 oz Twist On Lid and Flip Up Straw Leak Resistant Water Bottle Insulated Stainless Steel BPA-Free Lilac                  | Positive               | Positive          | Y+
 | 1000 PCS 2.4" Plastic Easter Eggs Bulk, Empty Easter Eggs in 5 Colors, Fillable Pastel Colorful Easter Eggs with Hinge, Perfect for Easter Hunt, Basket Stuffers Fillers and Easter Theme Party Favors| Negative               | Negative          | N-
 
+# Acuracy Score
+  score = Y+ + N- / Total
+        = 3 + 1 / 4
+        = 1 (100 %)
+  
+Test set is small, but we can collect more products from Amazon and re-calculate with more test data.
+
+# Future Enhancement
+- Publish Extension in Chrome Web Store
+- Cloud hosting for back end code
