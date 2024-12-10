@@ -195,3 +195,19 @@ This table categorizes Amazon product review pages as Positive, Negative, and Bl
 |-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|----------------|
 | Exercise Sarcasm Novelty T-Shirt                                                                      | [Amazon Link](https://www.amazon.com/Exercise-Fitness-Sarcasm-Novelty-T-Shirt/dp/B0CWNDJC1H/ref=sr_1_51_sspa?crid=AD8JPQE1555B&dib=eyJ2IjoiMSJ9.s0XTxLr1wIczTxKw_VxGmCT3OPPLEPylKzja3XyKgcqrsJEwn6x-_NPVPfqLf7ikgncmpGljyHILyO0TpM0TG_ofmbqyXhLFG-ozgigXbL1X7ITIJcBjKJ65ZG4DKmgR8BRPxU4XWN9q29vmBYRwIdbQkjuD57LT4pu41o9SHKLA83_nifC-JPTgJpQKNlblbK9DkIlgulUQtZOhK790-bHnwUjOpcNAeAl8tFxFOsv54SticlU7d4HJLM1AL94JQ4hHeIsSkh5qvXPCga1Syz0jpKtWCdbpL3AVYtLBc_E.ggZXpOMMXuqOEAhcYWIJpicMenH0df9HM8oq9O3DADs&dib_tag=se&keywords=1+star&qid=1732142441&sprefix=1+star%2Caps%2C251&sr=8-51-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9idGY&psc=1)                                                    | Blank         |
 
+# Software Test Result.
+Here Sofware results are marked as Postive (Y), Negetive (N), Blank (No Data).
+Human Feedback are marked as Positive (+), Negetive(-), Blank (-)
+
+
+This table compares human-provided sentiment feedback with software-generated feedback for various products.
+
+| Product Name                                        | Human Feedback               | Software Feedback           |
+|----------------------------------------------------|------------------------------|-----------------------------|
+| Hasbro Gaming Connect 4 Classic Grid, Strategy Board Games for Kids | Mostly Positive               | [To Be Updated]             |
+| Apple Watch Series 10 Smartwatch with Jet Black Aluminium Case | Positive                     | [To Be Updated]             |
+| Crocs Unisex-Adult Classic Clogs                   | Positive                     | [To Be Updated]             |
+| BLACK+DECKER 3-in-1 Waffle Maker with Nonstick Reversible Plates | Negative                     | [To Be Updated]             |
+| Chicken Mask                                       | Negative                     | [To Be Updated]             |
+| Party Favors                                       | Negative                     | [To Be Updated]             |
+| Exercise Sarcasm Novelty T-Shirt                  | Blank                        | [To Be Updated]             |
