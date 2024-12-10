@@ -94,6 +94,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
    if (request.action === "getReviewTexts") {
     var elements = document.querySelectorAll('.review-text span');
     var reviewDateElements = document.querySelectorAll('span[data-hook="review-date"]');
+    if(reviewDateElements.length === 0) {
+      reviewDateElements = document.querySelectorAll('h6[data-hook="review-date"]');
+    }
+
 
     var reviewTexts = [];
     var reviewDates = [];
