@@ -164,7 +164,7 @@ The repository contains two primary components:
 ---
 ## Evaluation
 
-We have collected few sample Amazon page with review to test the software.
+Collected few sample Amazon pages with review to test the software.
 And used it to test the software. Below is our findings.
 
 Sample Amazon Product ReviewTest Pages:
@@ -175,11 +175,11 @@ This table categorizes Amazon product review pages as Positive, Negative, and Bl
 
 ## Positive Amazon Review Pages for Testing
 
-| Product Name                                                                                          | URL                                                                                                                                                                                                                     | Sentiment Feedback                      |
-|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
-| Hasbro Gaming Connect 4 Classic Grid, Strategy Board Games for Kids                                   | [Amazon Link](https://www.amazon.com/Legendary-Whitetails-Flannels-Cedarwood-Plaid/dp/B01K0ETB6E/?_encoding=UTF8&pd_rd_w=DJosc&content-id=amzn1.sym.aeef70de-9e3e-4007-ae27-5dbb7b4a72f6&pf_rd_p=aeef70de-9e3e-4007-ae27-5dbb7b4a72f6&pf_rd_r=13RRJ49ZRXYE0BK2CAE8&pd_rd_wg=4vxlk&pd_rd_r=c4fa0248-5612-44f4-801d-59c46d7b527a&ref_=pd_hp_d_btf_crs_zg_bs_7141123011) | Mostly Positive (Engaging and fun)     |
-| Apple Watch Series 10 Smartwatch with Jet Black Aluminium Case                                        | [Amazon Link](https://www.amazon.com)                                                                                                                                            | Positive (High satisfaction levels)     |
-| Crocs Unisex-Adult Classic Clogs                                                                      | [Amazon Link](https://www.amazon.com/Stanley-IceFlow-Stainless-Steel-Tumbler/dp/B0CT4BB651/?_encoding=UTF8&pd_rd_w=0sCqo&content-id=amzn1.sym.aeef70de-9e3e-4007-ae27-5dbb7b4a72f6&pf_rd_p=aeef70de-9e3e-4007-ae27-5dbb7b4a72f6&pf_rd_r=13RRJ49ZRXYE0BK2CAE8&pd_rd_wg=4vxlk&pd_rd_r=c4fa0248-5612-44f4-801d-59c46d7b527a&ref_=pd_hp_d_btf_crs_zg_bs_284507&th=1) | Positive (Comfortable and reliable)    |
+| Product Name                                                                                          | URL                                                                                                                                                                                                                     | Sentiment Feedback  |
+|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|
+| Hasbro Gaming Connect 4 Classic Grid, Strategy Board Games for Kids                                   | [Amazon Link](https://www.amazon.com/Legendary-Whitetails-Flannels-Cedarwood-Plaid/dp/B01K0ETB6E/?_encoding=UTF8&pd_rd_w=DJosc&content-id=amzn1.sym.aeef70de-9e3e-4007-ae27-5dbb7b4a72f6&pf_rd_p=aeef70de-9e3e-4007-ae27-5dbb7b4a72f6&pf_rd_r=13RRJ49ZRXYE0BK2CAE8&pd_rd_wg=4vxlk&pd_rd_r=c4fa0248-5612-44f4-801d-59c46d7b527a&ref_=pd_hp_d_btf_crs_zg_bs_7141123011) | Mostly Positive    |
+| Apple Watch Series 10 Smartwatch with Jet Black Aluminium Case                                        | [Amazon Link](https://www.amazon.com/Apple-Watch-Smartwatch-Aluminium-Always/dp/B0DGHQ2QH6/?_encoding=UTF8&pd_rd_w=DJosc&content-id=amzn1.sym.aeef70de-9e3e-4007-ae27-5dbb7b4a72f6&pf_rd_p=aeef70de-9e3e-4007-ae27-5dbb7b4a72f6&pf_rd_r=13RRJ49ZRXYE0BK2CAE8&pd_rd_wg=4vxlk&pd_rd_r=c4fa0248-5612-44f4-801d-59c46d7b527a&ref_=pd_hp_d_btf_crs_zg_bs_7141123011)                                                                                                                                            | Positive (High satisfaction levels) |
+| Crocs Unisex-Adult Classic Clogs                                                                      | [Amazon Link](https://www.amazon.com/Stanley-IceFlow-Stainless-Steel-Tumbler/dp/B0CT4BB651/?_encoding=UTF8&pd_rd_w=0sCqo&content-id=amzn1.sym.aeef70de-9e3e-4007-ae27-5dbb7b4a72f6&pf_rd_p=aeef70de-9e3e-4007-ae27-5dbb7b4a72f6&pf_rd_r=13RRJ49ZRXYE0BK2CAE8&pd_rd_wg=4vxlk&pd_rd_r=c4fa0248-5612-44f4-801d-59c46d7b527a&ref_=pd_hp_d_btf_crs_zg_bs_284507&th=1) | Positive (Comfortable and reliable) |
 
 ## Negative Amazon Review Pages for Testing
 
