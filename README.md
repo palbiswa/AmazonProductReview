@@ -1,4 +1,6 @@
 # How to use the Software
+
+---
 # Amazon Product Review Chrome Extension
 
 Welcome to **Amazon Product Review**, a Chrome extension that performs sentiment analysis on Amazon product reviews. This tool integrates a browser extension with a backend server to provide real-time insights into customer feedback.
@@ -97,4 +99,63 @@ and able to get key phrases based on the review comments posted on Amazon page f
 
 
 ## How the software is implemented.
+
+---
+
+## Overview
+**Amazon Product Review** is a Chrome extension integrated with a backend server for performing sentiment analysis on Amazon product reviews. The project is designed to extract review data from Amazon's product pages and process it through natural language processing (NLP) techniques to provide users with actionable insights.
+
+---
+
+## Features
+- Extracts customer reviews directly from Amazon product pages.
+- Performs sentiment analysis to classify reviews as Positive, Negative, or Neutral.
+- Displays summarized results in the browser.
+
+---
+## Project Structure
+The repository contains two primary components:
+
+1. **ChromeExtension**
+   - A browser extension written in JavaScript, HTML, and CSS.
+   - Responsible for interacting with Amazon's webpage to collect review data.
+   - Sends review data to the backend for processing.
+
+2. **TextMining**
+   - A backend service implemented to process reviews using NLP techniques.
+   - Classifies sentiments and returns results to the extension.
+   - Built using Python and uses libraries such as `NLTK`, `TextBlob`, or `Vader Sentiment`.
+
+---
+
+## Implementation Details
+
+### 1. Chrome Extension
+- **Technologies Used**: JavaScript, HTML, CSS
+- **Key Functionalities**:
+  - Scrapes review data from the product page using DOM manipulation.
+  - Sends HTTP requests to the backend server with the extracted data.
+  - Displays the sentiment analysis results directly in the browser main page and extension pop up.
+  - D3.JS is used for charts
+
+### 2. Backend (TextMining)
+- **Technologies Used**: Python
+- **Key Functionalities**:
+  - Implements RESTful APIs to communicate with the Chrome extension.
+  - Processes the review data using sentiment analysis algorithms.
+  - Returns JSON responses with sentiment classification.
+
+## How It Works
+1. The Chrome extension scrapes reviews from the active Amazon product page.
+2. The extension sends the extracted data to the backend server via a POST request.
+3. The backend processes the reviews and performs sentiment analysis.
+4. The analysis results are sent back to the extension and displayed in the browser.
+5. You can look into the implementation from the github code. Here is the quick snapshots of the file structure.
+   UI Code Files
+   ![UI Code Files](assets/UI_Code.png).
+   Python Text Mining Backend Code Files
+   ![Backend Python Text Mining Files](assets/Python_Code.png).
+   
+
+---
 ## Evaluation
