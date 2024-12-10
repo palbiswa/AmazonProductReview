@@ -171,15 +171,15 @@ Sample Amazon Product ReviewTest Pages:
 
 # Test Pages for Amazon Product Review Chrome Extension
 
-This table categorizes Amazon product review pages as Positive, Negative, and Blank for testing the sentiment analysis capabilities of the Chrome extension. Each entry includes sentiment feedback provided based on human judgment.
+This table categorizes Amazon product review pages as Positive, Negative for testing the sentiment analysis capabilities of the Chrome extension. Each entry includes sentiment feedback provided based on human judgment.
 
 ## Positive Amazon Review Pages for Testing
 
 | Product Name                                                                                          | URL                                                                                                                                                                                                                     | Sentiment Feedback |
 |-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| Hasbro Gaming Connect 4 Classic Grid, Strategy Board Games for Kids                                   | [Amazon Link](https://www.amazon.com/Legendary-Whitetails-Flannels-Cedarwood-Plaid/dp/B01K0ETB6E/?_encoding=UTF8&pd_rd_w=DJosc&content-id=amzn1.sym.aeef70de-9e3e-4007-ae27-5dbb7b4a72f6&pf_rd_p=aeef70de-9e3e-4007-ae27-5dbb7b4a72f6&pf_rd_r=13RRJ49ZRXYE0BK2CAE8&pd_rd_wg=4vxlk&pd_rd_r=c4fa0248-5612-44f4-801d-59c46d7b527a&ref_=pd_hp_d_btf_crs_zg_bs_7141123011) | Mostly Positive |
+| Legendary Whitetails Men's Buck Camp Flannel, Long Sleeve Plaid Button Down Casual Shirt, Corduroy Cuffs                                  | [Amazon Link](https://www.amazon.com/Legendary-Whitetails-Flannels-Cedarwood-Plaid/dp/B01K0ETB6E/?_encoding=UTF8&pd_rd_w=DJosc&content-id=amzn1.sym.aeef70de-9e3e-4007-ae27-5dbb7b4a72f6&pf_rd_p=aeef70de-9e3e-4007-ae27-5dbb7b4a72f6&pf_rd_r=13RRJ49ZRXYE0BK2CAE8&pd_rd_wg=4vxlk&pd_rd_r=c4fa0248-5612-44f4-801d-59c46d7b527a&ref_=pd_hp_d_btf_crs_zg_bs_7141123011) | Positive |
 | Apple Watch Series 10 Smartwatch with Jet Black Aluminium Case                                        | [Amazon Link](https://www.amazon.com/Apple-Watch-Smartwatch-Aluminium-Always/dp/B0DGHQ2QH6/?_encoding=UTF8&pd_rd_w=DJosc&content-id=amzn1.sym.aeef70de-9e3e-4007-ae27-5dbb7b4a72f6&pf_rd_p=aeef70de-9e3e-4007-ae27-5dbb7b4a72f6&pf_rd_r=13RRJ49ZRXYE0BK2CAE8&pd_rd_wg=4vxlk&pd_rd_r=c4fa0248-5612-44f4-801d-59c46d7b527a&ref_=pd_hp_d_btf_crs_zg_bs_7141123011)                                                                                                                                            | Positive |
-| Crocs Unisex-Adult Classic Clogs                                                                      | [Amazon Link](https://www.amazon.com/Stanley-IceFlow-Stainless-Steel-Tumbler/dp/B0CT4BB651/?_encoding=UTF8&pd_rd_w=0sCqo&content-id=amzn1.sym.aeef70de-9e3e-4007-ae27-5dbb7b4a72f6&pf_rd_p=aeef70de-9e3e-4007-ae27-5dbb7b4a72f6&pf_rd_r=13RRJ49ZRXYE0BK2CAE8&pd_rd_wg=4vxlk&pd_rd_r=c4fa0248-5612-44f4-801d-59c46d7b527a&ref_=pd_hp_d_btf_crs_zg_bs_284507&th=1) | Positive |
+| Stanley IceFlow Flip Straw Tumbler with Handle 30 oz | Twist On Lid and Flip Up Straw | Leak Resistant Water Bottle  Insulated Stainless Steel BPA-Free  Lilac                                                                      | [Amazon Link](https://www.amazon.com/Stanley-IceFlow-Stainless-Steel-Tumbler/dp/B0CT4BB651/?_encoding=UTF8&pd_rd_w=0sCqo&content-id=amzn1.sym.aeef70de-9e3e-4007-ae27-5dbb7b4a72f6&pf_rd_p=aeef70de-9e3e-4007-ae27-5dbb7b4a72f6&pf_rd_r=13RRJ49ZRXYE0BK2CAE8&pd_rd_wg=4vxlk&pd_rd_r=c4fa0248-5612-44f4-801d-59c46d7b527a&ref_=pd_hp_d_btf_crs_zg_bs_284507&th=1) | Positive |
 
 ## Negative Amazon Review Pages for Testing
 
@@ -189,25 +189,19 @@ This table categorizes Amazon product review pages as Positive, Negative, and Bl
 | Chicken Mask                                                                                          | [Amazon Link](https://www.amazon.com/Jumlys-Plastic-Fillable-Colorful-Stuffers/dp/B0CP7Y8NMR/ref=pd_sim_hxwPM2_sspa_dk_detail_p0_og_d0?pd_rd_w=dbvOV&content-id=amzn1.sym.8731cf14-a5af-469f-9ca4-1f4799dd0e7c&pf_rd_p=8731cf14-a5af-469f-9ca4-1f4799dd0e7c&pf_rd_r=T3AFDT2C0VV6V8CEY0Q1&pd_rd_wg=x5wHC&pd_rd_r=10a802bc-1d8e-467f-9723-ddf7a5d1cac8&pd_rd_i=B0CP7Y8NMR&psc=1) | Negative |
 | Party Favors                                                                                          | [Amazon Link](https://www.amazon.com/Plastic-Fillable-Colorful-Perfect-Stuffers/dp/B0CNGTK8X9/)                                                                                  | Negative |
 
-## Blank Reviews
-
-| Product Name                                                                                          | URL                                                                                       | Sentiment Feedback |
-|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|----------------|
-| Exercise Sarcasm Novelty T-Shirt                                                                      | [Amazon Link](https://www.amazon.com/Exercise-Fitness-Sarcasm-Novelty-T-Shirt/dp/B0CWNDJC1H/ref=sr_1_51_sspa?crid=AD8JPQE1555B&dib=eyJ2IjoiMSJ9.s0XTxLr1wIczTxKw_VxGmCT3OPPLEPylKzja3XyKgcqrsJEwn6x-_NPVPfqLf7ikgncmpGljyHILyO0TpM0TG_ofmbqyXhLFG-ozgigXbL1X7ITIJcBjKJ65ZG4DKmgR8BRPxU4XWN9q29vmBYRwIdbQkjuD57LT4pu41o9SHKLA83_nifC-JPTgJpQKNlblbK9DkIlgulUQtZOhK790-bHnwUjOpcNAeAl8tFxFOsv54SticlU7d4HJLM1AL94JQ4hHeIsSkh5qvXPCga1Syz0jpKtWCdbpL3AVYtLBc_E.ggZXpOMMXuqOEAhcYWIJpicMenH0df9HM8oq9O3DADs&dib_tag=se&keywords=1+star&qid=1732142441&sprefix=1+star%2Caps%2C251&sr=8-51-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9idGY&psc=1)                                                    | Blank         |
-
 # Software Test Result.
-Here Sofware results are marked as Postive (Y), Negetive (N), Blank (No Data).
-Human Feedback are marked as Positive (+), Negetive(-), Blank (-)
+Here Sofware results are marked as Postive (Y), Negetive (N).
+Human Feedback are marked as Positive (+), Negetive(-)
 
 
 This table compares human-provided sentiment feedback with software-generated feedback for various products.
 
-| Product Name                                        | Human Feedback               | Software Feedback           |
-|----------------------------------------------------|------------------------------|-----------------------------|
-| Hasbro Gaming Connect 4 Classic Grid, Strategy Board Games for Kids | Mostly Positive               | [To Be Updated]             |
-| Apple Watch Series 10 Smartwatch with Jet Black Aluminium Case | Positive                     | [To Be Updated]             |
-| Crocs Unisex-Adult Classic Clogs                   | Positive                     | [To Be Updated]             |
-| BLACK+DECKER 3-in-1 Waffle Maker with Nonstick Reversible Plates | Negative                     | [To Be Updated]             |
-| Chicken Mask                                       | Negative                     | [To Be Updated]             |
-| Party Favors                                       | Negative                     | [To Be Updated]             |
-| Exercise Sarcasm Novelty T-Shirt                  | Blank                        | [To Be Updated]             |
+| Product Name                                        | Human Feedback         | Software Feedback | Result
+|----------------------------------------------------|------------------------|-----------------|
+| Legendary Whitetails Men's Buck Camp Flannel, Long Sleeve Plaid Button Down Casual Shirt, Corduroy Cuffs | Positive               | Positive        | Y+
+| Apple Watch Series 10 Smartwatch with Jet Black Aluminium Case | Positive               | Positive | Y+
+| Stanley IceFlow Flip Straw Tumbler with Handle 30 oz | Twist On Lid and Flip Up Straw Leak Resistant Water Bottle Insulated Stainless Steel BPA-Free Lilac                   | Positive               | Positive | Y+
+| BLACK+DECKER 3-in-1 Waffle Maker with Nonstick Reversible Plates | Negative               | Negative |
+| Chicken Mask                                       | Negative               | [To Be Updated] |
+| Party Favors                                       | Negative               | [To Be Updated] |
+
