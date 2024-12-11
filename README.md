@@ -47,6 +47,22 @@ Navigate to the project directory:
 ```   
 2. Install required dependencies. 
    For example install the corresponding packages like nltk,flask, CORS,TextBlob, VaderSentiment and related packages mentioned in python code.
+   Mainly following packages needs to be installed
+   ```bash
+      from flask import Flask, jsonify, request
+      import logging
+      from flask_cors import CORS
+      from collections import defaultdict
+      from datetime import datetime
+      from langdetect import detect
+      import nltk
+      from nltk.corpus import stopwords
+      from nltk.tokenize import word_tokenize
+      from nltk.collocations import BigramCollocationFinder
+      from nltk.metrics import BigramAssocMeasures
+      from textblob import TextBlob
+      from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+   ```
 3. Start the backend server using ProductAnalyserApp.py. This is the flask class which will run the server to receive REST API request from Chrome extension
 4. Ensure the server is running and accessible. If it runs properly it will show the following like in console.
  INFO:werkzeug:WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
@@ -82,7 +98,7 @@ Here is the example screen shot.
         else:
             return "Strongly Positive" # polarity > 0.5
 ```
-4. If want to see details review about the product then click on the extension Amazon Product Review as mentioned in bellow screenshot to open the extension pop up.
+4. If want to see details review about the product then click on the extension Amazon Product Review as mentioned in bellow screenshot to open the extension pop up. Find the extension on the right top in browser.
 ![Load Extension pop up](assets/invikeExtension.png).
 5. It will open a pop up and show Product Review insights.
 ![Extension Pop Up Page](assets/pop-up_page.png).
