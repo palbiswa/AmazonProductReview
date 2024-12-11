@@ -84,9 +84,12 @@ Here is screen for an example.
 3. If you scroll up you will see a green banner on the top of this same page, which is showing
 review sentiment for this product based on user reviews mentioned in this page. This triggers the extension on page load to show upfront feedback.
 Here is the example screen shot.
-Positive review Sentiment
+- Positive review Sentiment:
+
 ![Green Sentiment Banner on Top of the page](assets/sentiment_banner.png).
-Negative Review Sentiment
+
+- Negative Review Sentiment :
+
 ![Red Sentiment Banner on top of page](assets/negative_sentiment.png).
 4. If Sentiment is different it will show accordingly based on following logic.
 ```bash
